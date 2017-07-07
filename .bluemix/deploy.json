@@ -22,7 +22,7 @@
             "type": "string"
         },
         "catalog-app-name": {
-            "description": "catalog app name",
+            "description": "desc app name",
             "type": "string"
         },
         "ui-app-name": {
@@ -53,11 +53,11 @@
     "required": [
       "selected-region", "selected-organization", "selected-space",
       "orders-app-name",
-      "catalog-app-name",
+      "desc-app-name",
       "ui-app-name",
       "dashboard-app-name",
       "orders-branch-name",
-      "catalog-branch-name",
+      "desc-branch-name",
       "ui-branch-name",
       "dashboard-branch-name"
     ],
@@ -75,8 +75,8 @@
         {
           "type": "text",
           "readonly": false,
-          "title": "Catalog App Name",
-          "key": "catalog-app-name"
+          "title": "DESC App Name",
+          "key": "DESC-app-name"
         },
         {
           "type": "text",
@@ -140,8 +140,8 @@
         {
           "type": "text",
           "readonly": false,
-          "title": "Catalog Branch Name",
-          "key": "catalog-branch-name"
+          "title": "Desc Branch Name",
+          "key": "desc-branch-name"
         },
         {
           "type": "text",
