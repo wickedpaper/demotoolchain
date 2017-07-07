@@ -21,7 +21,7 @@
             "description": "orders app name",
             "type": "string"
         },
-        "catalog-app-name": {
+        "desc-app-name": {
             "description": "desc app name",
             "type": "string"
         },
@@ -37,8 +37,8 @@
           "description": "orders branch name to deploy",
           "type": "string"
         },
-        "catalog-branch-name": {
-          "description": "catalog branch name to deploy",
+        "desc-branch-name": {
+          "description": "desc branch name to deploy",
           "type": "string"
         },
         "ui-branch-name": {
