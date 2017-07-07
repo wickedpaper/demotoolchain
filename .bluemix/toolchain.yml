@@ -1,6 +1,6 @@
 ---
-name: "Cloud-native Toolchain for Microservices (Cloud Insurance Co.)"
-description: "With this cloud-native toolchain, you use a sample to create an online insurance store that consists of three microservices: a Catalog API, an Orders API, and a UI that calls both of the APIs. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, functional testing, issue tracking, online editing.\n\nTo get started, click **Create**."
+name: "Cloud-native Toolchain for Microservices (DESC)"
+description: "This toolchain has  microservices: a Catalog API, an Orders API, and a UI that calls both of the APIs. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, functional testing, issue tracking, online editing.\n\nTo get started, click **Create**."
 required:
  - deploy
 
@@ -8,32 +8,32 @@ required:
 catalog-api-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "cloudco-insurance-catalog"
-    repo_url: "https://github.com/IBM-Bluemix/insurance-catalog"
+    repo_name: "repo-clinical-desc-user"
+    repo_url: "https://github.com/wickedpaper/repo-1001-clinical-use-desc.git"
     type: clone
     has_issues: true
-
+# above is for catalogs origin
 orders-api-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "cloudco-insurance-orders"
-    repo_url: "https://github.com/IBM-Bluemix/insurance-orders"
+    repo_name: "clincal-use-registrar"
+    repo_url: "https://github.com/wickedpaper/repo-1001-clinical-use-registrar.git"
     type: clone
     has_issues: true
-
+#above is for orders origin
 ui-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "cloudco-insurance-bot"
-    repo_url: "https://github.com/IBM-Bluemix/insurance-bot"
+    repo_name: "clinuse-desc-bot"
+    repo_url: "https://github.com/wickedpaper/repo-1001-clinuse-desc-bot.git"
     type: clone
     has_issues: true
 
 dashboard-repo:
   service_id: githubpublic
   parameters:
-    repo_name: "cloudco-insurance-dashboard"
-    repo_url: "https://github.com/IBM-Bluemix/insurance-bot-dashboard"
+    repo_name: "clintel-dash"
+    repo_url: "https://github.com/wickedpaper/repo-1001-clintel-dash.git"
     type: clone
     has_issues: true
 
@@ -51,7 +51,7 @@ ui-build:
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
-        CATALOG_APP_NAME: "{{deploy.parameters.catalog-app-name}}"
+        DESC_APP_NAME: "{{deploy.parameters.catalog-app-name}}"
         ORDERS_APP_NAME: "{{deploy.parameters.orders-app-name}}"
       execute: true
     services: ["ui-repo"]
@@ -62,7 +62,7 @@ catalog-api-build:
   parameters:
     name: "catalog ({{deploy.parameters.catalog-branch-name}})"
     configuration:
-      content: $file(catalog-api.pipeline.yml)
+      content: $file(desc-api.pipeline.yml)
       env:
         REPO: "catalog-api-repo"
         REPO_BRANCH: "{{deploy.parameters.catalog-branch-name}}"
@@ -71,7 +71,7 @@ catalog-api-build:
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
       execute: true
-    services: ["catalog-api-repo"]
+    services: ["desc-api-repo"]
   hidden: [form, description]
 
 orders-api-build:
@@ -87,7 +87,7 @@ orders-api-build:
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
-        CATALOG_APP_NAME: "{{deploy.parameters.catalog-app-name}}"
+        DESC_APP_NAME: "{{deploy.parameters.desc-app-name}}"
       execute: true
     services: ["orders-api-repo"]
   hidden: [form, description]
@@ -120,11 +120,11 @@ deploy:
     selected-organization: "{{organization}}"
     selected-space: "{{space}}"
     orders-app-name: "{{name}}-orders"
-    catalog-app-name: "{{name}}-catalog"
+    desc-app-name: "{{name}}-desc"
     ui-app-name: "{{name}}-webui"
     dashboard-app-name: "{{name}}-dashboard"
     orders-branch-name: "master"
-    catalog-branch-name: "master"
+    desc-branch-name: "master"
     ui-branch-name: "master"
     dashboard-branch-name: "master"
 
