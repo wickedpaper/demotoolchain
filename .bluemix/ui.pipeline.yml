@@ -20,8 +20,8 @@ stages:
   properties:
   - name: REPO_BRANCH
     value: ${REPO_BRANCH}
-  - name: CATALOG_APP_NAME
-    value: ${CATALOG_APP_NAME}
+  - name: DESC_APP_NAME
+    value: ${DESC_APP_NAME}
   - name: ORDERS_APP_NAME
     value: ${ORDERS_APP_NAME}
   - name: REGION_ID
