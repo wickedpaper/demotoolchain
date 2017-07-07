@@ -18,7 +18,7 @@ Microservices:
 
 1. **Auto-Deploy button:**
 
-  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com//https://github.com/wickedpaper/demotoolchain)
+  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/wickedpaper/demotoolchain)
 
   Clicking it will:
   * **create 4 GitHub repositories** with the required source code for all the application components;
