@@ -5,7 +5,7 @@ required:
  - deploy
 
 # Github repos
-catalog-api-repo:
+desc-api-repo:
   service_id: githubpublic
   parameters:
     repo_name: "repo-clinical-desc-user"
@@ -51,22 +51,22 @@ ui-build:
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
-        DESC_APP_NAME: "{{deploy.parameters.catalog-app-name}}"
+        DESC_APP_NAME: "{{deploy.parameters.desc-app-name}}"
         ORDERS_APP_NAME: "{{deploy.parameters.orders-app-name}}"
       execute: true
     services: ["ui-repo"]
   hidden: [form, description]
 
-catalog-api-build:
+desc-api-build:
   service_id: pipeline
   parameters:
-    name: "catalog ({{deploy.parameters.catalog-branch-name}})"
+    name: "desc ({{deploy.parameters.desc-branch-name}})"
     configuration:
       content: $file(desc-api.pipeline.yml)
       env:
-        REPO: "catalog-api-repo"
-        REPO_BRANCH: "{{deploy.parameters.catalog-branch-name}}"
-        CF_APP_NAME: "{{deploy.parameters.catalog-app-name}}"
+        REPO: "desc-api-repo"
+        REPO_BRANCH: "{{deploy.parameters.desc-branch-name}}"
+        CF_APP_NAME: "{{deploy.parameters.desc-app-name}}"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
